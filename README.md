@@ -3,7 +3,7 @@
 | Paket | İndir |
 | --- | --- |
 | Sunucu 0.1.6 | [Archiv-Server-Setup-0.1.6.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Server-Setup-0.1.6.exe) |
-| Windows istemcisi 0.1.2 | [Archiv-Client-Setup.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-pilot-0.1.2/Archiv-Client-Setup.exe) |
+| Windows istemcisi 0.1.3 | [Archiv-Client-Setup-0.1.3.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-client-0.1.3/Archiv-Client-Setup-0.1.3.exe) |
 
 Sunucu dosyasını yönetici olarak çalıştırın. Mevcut başarısız kurulumu yeniden kaldırmayın; `C:\ProgramData\PdfArchive`, `Config`, SQL veritabanı ve belgeleri silmeyin. 0.1.6, tanıdığı mevcut arşivi kaydedilmiş SQL bağlantısı ve uygulama hesaplarıyla kullanır. Özel Windows indeksleyici hesabının mevcut parolası gerekebilir.
 
@@ -18,3 +18,6 @@ Son sunucu dosyasıyla Windows 11 x64 / SQL Server 2022 Express üzerinde beş g
 Bu depo kurulum indirmeleri içindir. Dosyalar GitHub Releases üzerinden dağıtılır.
 
 [Kurulum adımları](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Kurulum-0.1.6.txt) · [Son sürüm](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/latest)
+
+İstemci kurucusu 0.1.3: yeni/boş klasör seçimi düzeltildi; 115 gerçek kurulum kontrolü, uygulama açılışı ve 30 dizin kontrolü geçti. İstemcinin 16 uygulama dosyası aynı kaldı; HTTPS/VPN davranışı değişmedi.
+İstemci SHA256: `02F4C467EE165CAAC395DCDB2DB417B07C9AA79ABCBC9373CEEE6DB943DA6C6D`

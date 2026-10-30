@@ -1,26 +1,29 @@
-# PDF Archive Search — Windows kurulumları
+# PDF Archive Search — Kurulum dosyaları
+
+Test edilmiş Windows kurucuları ve kurulum rehberi.
 
 | Paket | İndir |
 | --- | --- |
-| Mevcut sunucuya güncelleme 0.1.6.1 | [Archiv-Server-Update-0.1.6.1.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-update-0.1.6.1/Archiv-Server-Update-0.1.6.1.exe) |
-| Windows istemcisi 0.1.4 | [Archiv-Client-Setup-0.1.4.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-client-0.1.4/Archiv-Client-Setup-0.1.4.exe) |
-| Yeni sunucu için temel kurulum 0.1.6 | [Archiv-Server-Setup-0.1.6.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Server-Setup-0.1.6.exe) |
+| Sunucuya HTTP/Web 0.1.0 ve gömülü iş akışı 0.1.6.2 | [Archiv-HTTP-Web-Setup-0.1.0.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-http-web-0.1.0/Archiv-HTTP-Web-Setup-0.1.0.exe) |
+| Windows istemcisi 0.1.6 | [Archiv-Client-Setup-0.1.6.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-client-0.1.6/Archiv-Client-Setup-0.1.6.exe) |
+| Önkoşul: sunucu güncellemesi 0.1.6.1 R6 | [Archiv-Server-Update-0.1.6.1.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-update-0.1.6.1/Archiv-Server-Update-0.1.6.1.exe) |
+| Yalnız yeni sunucu için temel kurulum 0.1.6 | [Archiv-Server-Setup-0.1.6.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Server-Setup-0.1.6.exe) |
 
-**Çalışan sunucuda önce 0.1.6.1 güncellemesini yönetici olarak çalıştırın; sonra istemciyi 0.1.4'e güncelleyin.** Önceki sürümü kaldırmayın; ProgramData, Config, SQL veritabanı ve PDF'leri silmeyin. Mevcut bağlantılar, hesaplar, kaynaklar, izinler ve indeksleyici Windows hesabı korunur. SQL/Windows parolası yeniden istenmez. Yeni sunucuda önce tam 0.1.6 kurulumu, ardından güncelleme gerekir.
+[Türkçe kurulum ve kullanım rehberi](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-http-web-0.1.0/Archiv-Kurulum-HTTP-Web-0.1.0-Client-0.1.6.txt)
 
-[Kurulum ve kullanım adımları](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-update-0.1.6.1/Archiv-Guncelleme-0.1.6.1.txt)
+Çalışan sunucuyu kaldırmayın. Önce SQL veritabanını, kalıcı yapılandırmayı ve orijinal PDF'leri/Inbox'ı yedekleyin. **R6 henüz uygulanmadıysa R6 → HTTP/Web 0.1.0 → Client 0.1.6** sırasını izleyin. R6 zaten başarıyla uygulandıysa doğrudan HTTP/Web kurucusuyla devam edin. HTTP/Web, gereken 0.1.6.2 iş akışı güncellemesini içerir; SQL/Windows parolalarını yeniden istemez. **0.1.6.2 veya HTTP/Web kurulduktan sonra R6'yı tekrar çalıştırmayın.** Yeni sunucuda önce tam 0.1.6 temel kurulum gerekir.
 
-Güncelleme API ve indeksleyicinin beklenmeyen işlem çıkışlarından toparlanmasını, yerel sabit disk klasörlerinin ek paylaşım/kök listesi olmadan okunmasını, kaynak silmeyi ve fatura inceleme ekranını ekler. Windows hesabının dosya okuma hakkı gerekir; UNAS/SMB izinleri geçerlidir. Fatura alanları yerel metin/OCR'den çıkarılır ve elle düzeltilebilir; özgün PDF'ler değişmez.
+Windows istemcisi ve tarayıcı aynı kök adresi kullanır: `http://SUNUCUNUN-OZEL-IP-ADRESI:8080` (örneğin `http://192.168.1.10:8080`). Sonuna `/api` eklenmez. HTTP şifrelenmez; yalnız güvenilir şirket ağı/VPN için kullanın, internete açmayın. iPhone için Safari web yolu bulunur; yerel iOS dağıtım paketi yoktur. Gerçek iPhone/Safari cihaz doğrulaması yapılmadı.
 
-Son sunucu güncelleme EXE'siyle Windows 11 x64 / SQL Server 2022 Express üzerinde 70 kurulum/yaşam döngüsü, 37 kaynak/fatura ve 11 temel API/PDF/OCR kontrolü geçti. Zorla kapatma sonrasında API 8,84 saniyede, indeksleyici 6,97 saniyede elle müdahale olmadan geri geldi. Görev durdurma, güncellemeyi tekrar uygulama, kaldırma ve test temizliği geçti. İstemcide 56 gerçek kurulum/açılış/kaldırma kontrolü ve 32 Flutter testi geçti; analiz temiz.
+Fatura ekranında Belegdatum/Übertrag alanları, sabit EUR, yönetici tarafından düzenlenen alan etiketleri ve insan kontrolü/onayı bulunur. Orijinal PDF indirme ile ayrı **İçeri aktar** ekranı birbirinden ayrıdır. Ortak gelen kutusuna yüklemek için kaynakta **Read + Manage** gerekir; yalnız Read verilen kullanıcı görüntüleyip izinli orijinali indirebilir. PDF başına sınır 50 MiB'dir. Almanca/İngilizce/Türkçe OCR ve alan düzeltmeleri orijinal dosyayı değiştirmez.
 
-Gerçek şirket Windows Server / SQL Server 2019 Standard / UNAS, 40.000 PDF kapasitesi, uzak HTTPS, işletim sistemi yeniden başlatması ve iOS bu yerel kabul kapsamında doğrulanmadı.
+Doğrulama: son UTF-8 Client 0.1.6 paketiyle gerçek 0.1.4 → 0.1.6 kurulum, yükseltme ve kaldırma kabulü **64/64**, temizlik **1/1** geçti; profil metadatası korundu. **51 Flutter testi**, analiz, Windows ve Web derlemeleri geçti. Sunucu birleşik özellik/yaşam döngüsü kabulü: **85/85 kurulum/servis, 69/69 fatura/OCR ve ilk/yeniden kurulumda 28/28 HTTP kontrolü geçti; hizmet 6,07 saniyede otomatik toparlandı. Test kaynaklarının ve geçici SQL hesabının temizliği doğrulandı**. Native istemci GUI'si, gerçek tarayıcı etkileşimleri ve iPhone/Safari cihaz incelemesi doğrulanmadı; kurulum kabulü bu testlerin yerine geçmez.
 
 | Dosya | Bayt | SHA256 |
 | --- | ---: | --- |
-| Sunucu güncellemesi 0.1.6.1 | 275517 | `6B76B934DD3DD7F483B944286C15C370DBC61F639F04EA4A59649E204EECDEC0` |
-| İstemci 0.1.4 | 36543446 | `F8ADD1483B69CEE45622914ECD9F8FF0B3A491848E87BBB42E2E140DD61DFC5F` |
-| Tam sunucu kurulumu 0.1.6 | 112104280 | `CC656ECC39404C67629DE0547D4436BF7B0599FBC9BECF5D5116DC7250CD6201` |
+| HTTP/Web 0.1.0 | 42988406 | `DC838E720744BF22B05C963E0DCED80B26EFA89E4A0F2FCD3AC84CEBFCDF1A86` |
+| Client 0.1.6 | 36887581 | `FBADDCCA6AD0AA19F37952DF87FBADD5E6B7A740C205DAE3C9B40F88F57316E7` |
 
-Bu depo yalnız kurulum dosyaları ve kullanım bilgileri içindir. Dosyalar GitHub Releases'te tutulur; özel projenin kaynak kodu bu depoya konmaz. Bu sürümler yerelde derlendi, GitHub Actions çalıştırılmadı. 30.10.2026 kontrolünde her iki deponun Actions artifact ve cache kullanımı 0 bayttı.
+[HTTP/Web SHA256 dosyası](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-http-web-0.1.0/Archiv-HTTP-Web-Setup-0.1.0.exe.sha256) · [Client SHA256 dosyası](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-client-0.1.6/Archiv-Client-Setup-0.1.6.exe.sha256)
 
+Bu herkese açık depo yalnız kurulum dosyaları, sağlama toplamları ve kullanım rehberi içindir. Kurucular Releases varlıkları olarak paylaşılır; özel projenin kaynak kodu burada yayımlanmaz. Bu paketler yerelde derlendi; bu çalışma için GitHub Actions başlatılmadı.

@@ -2,22 +2,25 @@
 
 | Paket | İndir |
 | --- | --- |
-| Sunucu 0.1.6 | [Archiv-Server-Setup-0.1.6.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Server-Setup-0.1.6.exe) |
-| Windows istemcisi 0.1.3 | [Archiv-Client-Setup-0.1.3.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-client-0.1.3/Archiv-Client-Setup-0.1.3.exe) |
+| Mevcut sunucuya güncelleme 0.1.6.1 | [Archiv-Server-Update-0.1.6.1.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-update-0.1.6.1/Archiv-Server-Update-0.1.6.1.exe) |
+| Windows istemcisi 0.1.4 | [Archiv-Client-Setup-0.1.4.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-client-0.1.4/Archiv-Client-Setup-0.1.4.exe) |
+| Yeni sunucu için temel kurulum 0.1.6 | [Archiv-Server-Setup-0.1.6.exe](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Server-Setup-0.1.6.exe) |
 
-Sunucu dosyasını yönetici olarak çalıştırın. Mevcut başarısız kurulumu yeniden kaldırmayın; `C:\ProgramData\PdfArchive`, `Config`, SQL veritabanı ve belgeleri silmeyin. 0.1.6, tanıdığı mevcut arşivi kaydedilmiş SQL bağlantısı ve uygulama hesaplarıyla kullanır. Özel Windows indeksleyici hesabının mevcut parolası gerekebilir.
+**Çalışan sunucuda önce 0.1.6.1 güncellemesini yönetici olarak çalıştırın; sonra istemciyi 0.1.4'e güncelleyin.** Önceki sürümü kaldırmayın; ProgramData, Config, SQL veritabanı ve PDF'leri silmeyin. Mevcut bağlantılar, hesaplar, kaynaklar, izinler ve indeksleyici Windows hesabı korunur. SQL/Windows parolası yeniden istenmez. Yeni sunucuda önce tam 0.1.6 kurulumu, ardından güncelleme gerekir.
 
-Sunucu dosyası **112.104.280 bayt**. SHA256:
+[Kurulum ve kullanım adımları](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-update-0.1.6.1/Archiv-Guncelleme-0.1.6.1.txt)
 
-```text
-CC656ECC39404C67629DE0547D4436BF7B0599FBC9BECF5D5116DC7250CD6201
-```
+Güncelleme API ve indeksleyicinin beklenmeyen işlem çıkışlarından toparlanmasını, yerel sabit disk klasörlerinin ek paylaşım/kök listesi olmadan okunmasını, kaynak silmeyi ve fatura inceleme ekranını ekler. Windows hesabının dosya okuma hakkı gerekir; UNAS/SMB izinleri geçerlidir. Fatura alanları yerel metin/OCR'den çıkarılır ve elle düzeltilebilir; özgün PDF'ler değişmez.
 
-Son sunucu dosyasıyla Windows 11 x64 / SQL Server 2022 Express üzerinde beş gerçek Setup.exe senaryosu geçti: 177 kurulum/yaşam döngüsü ve 58 API kontrolü. Mevcut hesaplar, yetkiler, PDF kayıtları, anahtarlar ve özgün belgeler korundu. Test hizmetleri, görevleri ve geçici veritabanı/SQL hesapları kaldırıldı. Gerçek şirket sunucusu ve UNAS bu yerel testin kapsamında değildir.
+Son sunucu güncelleme EXE'siyle Windows 11 x64 / SQL Server 2022 Express üzerinde 70 kurulum/yaşam döngüsü, 37 kaynak/fatura ve 11 temel API/PDF/OCR kontrolü geçti. Zorla kapatma sonrasında API 8,84 saniyede, indeksleyici 6,97 saniyede elle müdahale olmadan geri geldi. Görev durdurma, güncellemeyi tekrar uygulama, kaldırma ve test temizliği geçti. İstemcide 56 gerçek kurulum/açılış/kaldırma kontrolü ve 32 Flutter testi geçti; analiz temiz.
 
-Bu depo kurulum indirmeleri içindir. Dosyalar GitHub Releases üzerinden dağıtılır.
+Gerçek şirket Windows Server / SQL Server 2019 Standard / UNAS, 40.000 PDF kapasitesi, uzak HTTPS, işletim sistemi yeniden başlatması ve iOS bu yerel kabul kapsamında doğrulanmadı.
 
-[Kurulum adımları](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/download/windows-server-0.1.6/Archiv-Kurulum-0.1.6.txt) · [Son sürüm](https://github.com/ilkersuleymankoc/pdf-archive-search-downloads/releases/latest)
+| Dosya | Bayt | SHA256 |
+| --- | ---: | --- |
+| Sunucu güncellemesi 0.1.6.1 | 275517 | `6B76B934DD3DD7F483B944286C15C370DBC61F639F04EA4A59649E204EECDEC0` |
+| İstemci 0.1.4 | 36543446 | `F8ADD1483B69CEE45622914ECD9F8FF0B3A491848E87BBB42E2E140DD61DFC5F` |
+| Tam sunucu kurulumu 0.1.6 | 112104280 | `CC656ECC39404C67629DE0547D4436BF7B0599FBC9BECF5D5116DC7250CD6201` |
 
-İstemci kurucusu 0.1.3: yeni/boş klasör seçimi düzeltildi; 115 gerçek kurulum kontrolü, uygulama açılışı ve 30 dizin kontrolü geçti. İstemcinin 16 uygulama dosyası aynı kaldı; HTTPS/VPN davranışı değişmedi.
-İstemci SHA256: `02F4C467EE165CAAC395DCDB2DB417B07C9AA79ABCBC9373CEEE6DB943DA6C6D`
+Bu depo yalnız kurulum dosyaları ve kullanım bilgileri içindir. Dosyalar GitHub Releases'te tutulur; özel projenin kaynak kodu bu depoya konmaz. Bu sürümler yerelde derlendi, GitHub Actions çalıştırılmadı. 30.10.2026 kontrolünde her iki deponun Actions artifact ve cache kullanımı 0 bayttı.
+
